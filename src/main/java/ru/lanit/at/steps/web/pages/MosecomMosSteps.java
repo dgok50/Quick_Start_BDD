@@ -33,6 +33,12 @@ public class MosecomMosSteps extends AbstractWebSteps {
         element.shouldHave(exactText("Вопрос " + value + "/5"));
     }
 
+    @Допустим("выбрать пункт опроса {string}")
+    public void выбратьПунктОпроса(String value) {
+        $(byXpath("//div[contains(text(),'Выберите характер запаха из списка')]/following::input[contains(@value,'"+value+"')]/following-sibling::span")).click();
+    }
+
+
 
 
 }
