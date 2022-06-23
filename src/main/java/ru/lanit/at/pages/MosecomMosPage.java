@@ -29,6 +29,9 @@ public class MosecomMosPage extends WebPage {
     private SelenideElement weatherQuizAddressFirst =
             $x("//div[contains(text(),'Укажите адрес появления запаха')]/following-sibling::div/div/ul/li[1]");
 
+    @Name("поле ввода своего варианта")
+    private SelenideElement weatherQuizCustomVariant =
+            $x("//input[contains(@placeholder,'Введите ваш вариант')]");
 
 
 }
