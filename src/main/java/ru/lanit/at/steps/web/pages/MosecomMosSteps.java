@@ -1,14 +1,17 @@
 package ru.lanit.at.steps.web.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import io.cucumber.java.Before;
 import io.cucumber.java.ru.Допустим;
+import io.cucumber.java.ru.Тогда;
 import ru.lanit.at.steps.web.AbstractWebSteps;
 import ru.lanit.at.utils.web.pagecontext.PageManager;
+import io.qameta.allure.Attachment;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.SelenideElement.*;
+
 
 
 public class MosecomMosSteps extends AbstractWebSteps {
@@ -25,7 +28,7 @@ public class MosecomMosSteps extends AbstractWebSteps {
         element.should(exist);
     }
 
-    @Допустим("проверка что опрос на стадии {int}")
+    @Допустим("опрос на стадии {int}")
     public void опросНаСтадии(int value) {
         SelenideElement element = pageManager
                 .getCurrentPage()
@@ -33,17 +36,20 @@ public class MosecomMosSteps extends AbstractWebSteps {
         element.shouldHave(exactText("Вопрос " + value + "/5"));
     }
 
-    @Допустим("выбрать пункт {string} опроса на стадии {string}")
+    @Тогда("выбрать пункт {string} опроса на стадии {string}")
     public void выбратьПунктОпроса(String value, String stage) {
         $(byXpath("//div[contains(text(),'"+stage+"')]/following::input[contains(@value,'"+value+"')]/following-sibling::span")).click();
     }
 
-    @Допустим("выбрать временной отрезок {string}")
+    @Тогда("выбрать временной отрезок {string}")
     public void выбратьВременнойОтрезок(String value) {
         $(byXpath("//div[contains(@placeholder,'Выберите временные отрезки')]/following-sibling::*//span[contains(text(), '"+value+"')]")).click();
     }
 
-
+    @Attachment(value = "Снимок экрана страницы", type = "image/png")
+    public byte[] saveScreenshot(byte[] screenShot) {
+        return screenShot;
+    }
 
 
 }
