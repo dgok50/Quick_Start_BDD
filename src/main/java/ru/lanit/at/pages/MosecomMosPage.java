@@ -41,4 +41,10 @@ public class MosecomMosPage extends WebPage {
     private SelenideElement weatherQuizFirstDate =
             $x("//table[contains(@class,'ui-datepicker-calendar')]/tbody/tr[1]/td[contains(@data-handler, 'selectDay')][1]");
 
+    @Name("выбор временного отрезка")
+    private SelenideElement weatherQuizTimeLineSelect =
+            $x("//div[contains(@placeholder,'Выберите временные отрезки')]");
+
+
+
 }
