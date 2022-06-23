@@ -5,6 +5,11 @@ import io.cucumber.java.ru.Допустим;
 import ru.lanit.at.steps.web.AbstractWebSteps;
 import ru.lanit.at.utils.web.pagecontext.PageManager;
 
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.*;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.SelenideElement.*;
+
 
 public class MosecomMosSteps extends AbstractWebSteps {
 
@@ -15,11 +20,19 @@ public class MosecomMosSteps extends AbstractWebSteps {
     @Допустим("на странице присутствует {string}")
     public void наСтраницеПрисутствует(String string) {
         SelenideElement element = pageManager
-            .getCurrentPage()
-            .getElement(string);
-        element.exists();
+                .getCurrentPage()
+                .getElement(string);
+        element.should(exist);
     }
-    /// реализация шагов специфичных для страницы GooglePage
+
+    @Допустим("проверка что опрос на стадии {int}")
+    public void опросНаСтадии(int value) {
+        SelenideElement element = pageManager
+                .getCurrentPage()
+                .getElement("строка Стадии Опроса");
+        element.shouldHave(exactText("Вопрос " + value + "/5"));
+    }
+
 
 
 }
