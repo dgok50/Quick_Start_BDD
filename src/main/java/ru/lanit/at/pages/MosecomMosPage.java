@@ -13,7 +13,7 @@ public class MosecomMosPage extends WebPage {
     private SelenideElement weatherQuizHead =
             $x("//div[not(@style='display: none;')]/div[contains(text(),'Пройти опрос о качестве воздуха в Москве')]");
 
-    @Name("поле адреса")
+    @Name("адрес")
     private SelenideElement weatherQuizAddress =
             $x("//div[not(@style='display: none;')]/div[contains(text(),'Укажите адрес появления запаха')]/following-sibling::div/input");
 
@@ -29,9 +29,16 @@ public class MosecomMosPage extends WebPage {
     private SelenideElement weatherQuizAddressFirst =
             $x("//div[contains(text(),'Укажите адрес появления запаха')]/following-sibling::div/div/ul/li[1]");
 
-    @Name("поле ввода своего варианта")
+    @Name("своей вариант")
     private SelenideElement weatherQuizCustomVariant =
             $x("//input[contains(@placeholder,'Введите ваш вариант')]");
 
+    @Name("выбор даты")
+    private SelenideElement weatherQuizDateSelect =
+            $x("//input[contains(@placeholder,'Выберите дату')]");
+
+    @Name("первая дата из списка")
+    private SelenideElement weatherQuizFirstDate =
+            $x("//table[contains(@class,'ui-datepicker-calendar')]/tbody/tr[1]/td[contains(@data-handler, 'selectDay')][1]");
 
 }
