@@ -8,6 +8,7 @@ import static com.codeborne.selenide.Selenide.$x;
 
 @Name(value = "MosecomMos")
 public class MosecomMosPage extends WebPage {
+
     @Name("Опрос о качестве воздуха")
     private SelenideElement weatherQuizHead =
             $x("//div[not(@style='display: none;')]/div[contains(text(),'Пройти опрос о качестве воздуха в Москве')]");
@@ -19,6 +20,15 @@ public class MosecomMosPage extends WebPage {
     @Name("Кнопка Ответить")
     private SelenideElement weatherQuizAnswerButton =
             $x("//div[not(@style='display: none;')]/div[contains(text(),'Пройти опрос о качестве воздуха в Москве')]/following-sibling::*/button[contains(text(),'Ответить')]");
+
+    @Name("строка Стадии Опроса")
+    private SelenideElement weatherQuizStageString =
+            $x("//div[not(@style='display: none;')]/div[contains(text(),'Пройти опрос о качестве воздуха в Москве')]/following-sibling::div[contains(text(),'Вопрос')]");
+
+    @Name("первый из списка адресов")
+    private SelenideElement weatherQuizAddressFirst =
+            $x("//div[contains(text(),'Укажите адрес появления запаха')]/following-sibling::div/div/ul/li[1]");
+
 
 
 }
