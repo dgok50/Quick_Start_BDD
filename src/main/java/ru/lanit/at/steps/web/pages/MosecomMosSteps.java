@@ -38,6 +38,11 @@ public class MosecomMosSteps extends AbstractWebSteps {
         $(byXpath("//div[contains(text(),'Выберите характер запаха из списка')]/following::input[contains(@value,'"+value+"')]/following-sibling::span")).click();
     }
 
+    @Допустим("выбрать временной отрезок {string}")
+    public void выбратьВременнойОтрезок(String value) {
+        $(byXpath("//div[contains(@placeholder,'Выберите временные отрезки')]/following-sibling::*//span[contains(text(), '"+value+"')]")).click();
+    }
+
 
 
 
